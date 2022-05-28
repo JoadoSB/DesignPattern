@@ -6,23 +6,25 @@ public class Application {
 
     public static void main(String[] args){
 
-    Strategy strategyAddition = new AdditionCalculate();
-    Strategy strategySubtraction = new SubtractionCalculate();
+        Pay masterCard = new Mastercard();
+        Pay visaCard = new VisaCard();
+        Scanner c = new Scanner(System.in);
 
-    Scanner c = new Scanner(System.in);
+        System.out.println("Digite o valor da compra:");
+        double valor = c.nextDouble();
 
+    System.out.println("---- FORMAS DE PAGAMENTO ----");
+        System.out.println("1 - MasterCard");
+        System.out.println("2 - VisaCard");
+        System.out.println("Digite a opção desejada:");
+        Integer numero = c.nextInt();
 
-    System.out.println("Primeiro Valor");
-    Double valueFirst = c.nextDouble();
-
-    System.out.println("Segundo Valor");
-    Double valueSecond = c.nextDouble();
-
-    System.out.println("O resultado Soma: " +strategyAddition
-            .calculate(valueFirst, valueSecond));
-
-    System.out.println("O resultado subtração: " +strategySubtraction
-            .calculate(valueFirst, valueSecond));
-
+       if (numero==1) {
+           masterCard.pay(valor);
+       } else if (numero==2) {
+            visaCard.pay(valor);
+        }else
+        System.out.println("Opção incorreta!");
     }
+
 }
